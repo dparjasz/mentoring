@@ -1,6 +1,6 @@
 #Lista do zadań
 array_1 = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
-
+#Zadania
 def Zadanie_1():
     for i in range(1,101): #Jak zrobić tak aby tutaj dać 100 a nie 101?
         print(i)
@@ -61,9 +61,9 @@ def Zadanie_16():
     print(myArray)
 def Zadanie_17():
     if 10 in array_1:
-        return print(True)
+         print(True)
     else:
-        return print(False)
+         print(False)
 def Zadanie_18():
     print(array_1.count(5))
 def Zadanie_19():
@@ -119,7 +119,35 @@ def Zadanie_31():
             array.append(i)
     print(array)
 def Zadanie_32():
-    
-
-
+    print(array_1)
+    first_number = array_1[5]
+    last_number = array_1[-1]
+    array_1.pop(5)
+    array_1.pop()
+    array_1.append(first_number)
+    array_1.insert(5, last_number)
+    print(array_1)
+def Zadanie_33():
+    array_1.sort(reverse=True)
+    print(array_1[1])
+def Zadanie_34():
+    list = []
+    for i in array_1:
+        if array_1.count(i) > 1:
+            list.append(i)
+    print(list)
+def Zadanie_35():
+    list = []
+    for i in array_1:
+        if array_1.count(i) > 1:
+            continue
+        list.append(i)
+    print(list)
+def Zadanie_36():
+    print(array_1)
+    list = []
+    for i in array_1:
+        list.insert(0, i)
+    print(list)
+Zadanie_36()
 
