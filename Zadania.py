@@ -30,7 +30,7 @@ def Zadanie_8():
 def Zadanie_9():
         for x in range(1,11):
             for y in range(0,10):
-                print(y+x, end="  ") #Do omówienia
+                print(x+y, end="  ") #Do omówienia
             print()
 def Zadanie_10():
     array = []
@@ -50,7 +50,7 @@ def Zadanie_12():
     print(len(array))
 ## Zadanie_13 w ramach comprehenstion
 def Zadanie_14():
-    array =  list(range(1,101))
+    array = list(range(1,101))
     print(array)
 def Zadanie_15():
     print(array_1[-3])
@@ -74,3 +74,52 @@ def Zadanie_19():
 def Zadanie_20():
     print(max(array_1))
     print(min(array_1))
+def Zadanie_21():
+    avg = print(sum(array_1) / len(array_1))
+def Zadanie_22():
+    print(sum(array_1))
+def Zadanie_23():
+   array_1.reverse()## Nie można od razu w princie? Pokazuje wtedy "None"
+   print(array_1)
+def Zadanie_24():
+    print(len(array_1))
+def Zadanie_25():
+    half = int(len(array_1) / 2) ## ale co w momencie kiedy to suma będzie niepodzielna przez 2?
+    first_array = array_1[:half]
+    second_array = array_1[half:]
+    print(first_array)
+    print(second_array)
+def Zadanie_26():
+    print(array_1)
+    array_1.pop(-3)
+    print(array_1)
+def Zadanie_27():
+    print(array_1)
+    even_numbers = []
+    for i in array_1:
+        if i % 2 == 0:
+            even_numbers.append(i)
+    print(even_numbers)
+def Zadanie_28():
+    array = []
+    for i in array_1:
+        array.append(i**2)
+    print(array)
+def Zadanie_30():
+    print(array_1)
+    for i in array_1:
+        if i == 4:
+            array_1.remove(i)
+    print(array_1)
+def Zadanie_31():
+    print(array_1)
+    array = []
+    for i in array_1:
+        if i > 7:
+            array.append(i)
+    print(array)
+def Zadanie_32():
+    
+
+
+
