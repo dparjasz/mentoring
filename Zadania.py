@@ -1,8 +1,10 @@
 #Lista do zadań
+
 array_1 = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
+array_2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 #Zadania
 def Zadanie_1():
-    for i in range(1,101): #Jak zrobić tak aby tutaj dać 100 a nie 101?
+    for i in range(1,101):
         print(i)
 def Zadanie_2():
     for i in range(1,101,2):
@@ -120,10 +122,8 @@ def Zadanie_31():
     print(array)
 def Zadanie_32():
     print(array_1)
-    first_number = array_1[5]
-    last_number = array_1[-1]
-    array_1.pop(5)
-    array_1.pop()
+    first_number = array_1.pop(5)
+    last_number = array_1.pop()
     array_1.append(first_number)
     array_1.insert(5, last_number)
     print(array_1)
@@ -149,5 +149,59 @@ def Zadanie_36():
     for i in array_1:
         list.insert(0, i)
     print(list)
-Zadanie_36()
+    print(array_1[-1::-1])
+def Zadanie_37():
+    print(array_1)
+    for i in array_1:
+        if i > 5:
+            x = array_1.index(i)
+            array_1.pop(x)
+            array_1.insert(x, "True")
+    print(array_1)
+def Zadanie_38():
+    list = []
+    for i in array_1:
+        if i % 2 == 1:
+            list.append(i)
+    print(sum(list))
+def Zadanie_39():
+    list = []
+    for i in array_1:
+        if array_1.index(i) % 2 == 0:
+           list.append(i)
+    print(sum(list))
+def Zadanie_40():
+    list = []
+    for i in array_1:
+        if array_1.count(i) > 1:
+            count = array_1.count(i)
+            list.append([i, count])
+    print(max(list[count]))
+def Zadanie_41():
+    print(array_2[:2])
+def Zadanie_42():
+    print(array_2[-3:])
+def Zadanie_43():
+    print(array_2)
+    print(array_2[1:-1])
+def Zadanie_44():
+    print(array_2[4:8])
+def Zadanie_45():
+    for i in array_2[::2]:
+        print(i)
+def Zadanie_46():
+    array_2.reverse()
+    print(array_2)
+def Zadanie_47():
+    list = []
+    array_2.sort(reverse=True)
+    for i in array_2[::2]:
+        list.append(i)
+    print(list)
+def Zadanie_48():
+    print(array_2)
+
+
+
+
 
