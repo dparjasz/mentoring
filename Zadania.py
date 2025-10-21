@@ -1,5 +1,4 @@
 #Lista do zadań
-
 array_1 = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
 array_2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 #Zadania
@@ -50,7 +49,7 @@ def Zadanie_12():
         array.append(0)
     print(array)
     print(len(array))
-## Zadanie_13 w ramach comprehenstion
+## Zadanie_13 w ramach comprehension
 def Zadanie_14():
     array = list(range(1,101))
     print(array)
@@ -190,8 +189,7 @@ def Zadanie_45():
     for i in array_2[::2]:
         print(i)
 def Zadanie_46():
-    array_2.reverse()
-    print(array_2)
+    print(array_2[::-1])
 def Zadanie_47():
     list = []
     array_2.sort(reverse=True)
@@ -199,8 +197,25 @@ def Zadanie_47():
         list.append(i)
     print(list)
 def Zadanie_48():
+    numbers = [10,11,12]
+    for i in array_2[:3]:
+        array_2[i] = numbers[i]
     print(array_2)
-
+def Zadanie_49():
+    array_2[-1] = 999
+    print(array_2)
+def Zadanie_50():
+    empty_list = []
+    array_2 = empty_list ## Do omówienia bo nie wiem czy dobrze zrozumiałem
+    print(array_2)
+def Zadanie_51(): ## Do omówienia
+    x = []
+    numbers = array_2[2:5]
+    for i in numbers:
+        x.append(i)
+    x.extend(x)
+    print(x)
+Zadanie_51()
 
 
 
