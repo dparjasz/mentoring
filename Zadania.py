@@ -1,55 +1,93 @@
 #Lista do zadań
 array_1 = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
 array_2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+list = [3, 4, 5, 2, 3, 3, 2, 1, 4]
 #Zadania
 def Zadanie_1():
+    mylist = []
     for i in range(1,101):
-        print(i)
+        mylist.append(i)
+    myList_Comprehension = [i for i in range(1,101)]
+    print(mylist)
+    print(myList_Comprehension)
 def Zadanie_2():
+    mylist = []
     for i in range(1,101,2):
-        print(i)
+        mylist.append(i)
+    myList_Comprehension = [i for i in range(1,101,2)]
+    print(mylist)
+    print(myList_Comprehension)
 def Zadanie_3():
+    myList = []
     for i in range(-1,-101,-1):
-        print(i)
+        myList.append(i)
+    myList_Comprehension = [i for i in range(1,101,-1)]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_4():
+    myList = []
     for i in range(-1,-101,-3):
-        print(i)
+        myList.append(i)
+    myList_Comprehenstion = [i for i in range(-1,101,-3)]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_5():
+    myList = []
     for i in range(100,0,-1):
-        print(i)
+        myList.append(i)
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_6():
+    myList = []
     for i in range(1000,10,-10):
-        print(i)
+        myList.append(i)
+    myList_Comprehension = [i for i in range(1000,10,-10)]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_7():
+    myList = []
     for i in range(0,101):
         if (i % 3) == 0:
-            print(i)
+            myList.append(i)
+    myList_Comprehension = [i for i in range(0,101) if (i % 3) == 0]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_8():
+    myList = []
     for i in range(0,101):
         if (i % 2 == 0):
-            print(i)
+            myList.append(i)
+    myList_Comprehension = [i for i in range(0,101) if(i % 2 == 0)]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_9():
         for x in range(1,11):
             for y in range(0,10):
                 print(x+y, end="  ") #Do omówienia
             print()
 def Zadanie_10():
-    array = []
+    myList = []
     for x in range (1,11):
-        array.append(x**2)
-    print(array)
+        myList.append(x**2)
+    myList_Comprehension = [i**2 for i in range(1,11)]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_11():
+    myList = []
     for i in range (1,11):
         if i == 3 or i == 7:
             continue
-        print(i)
+        myList.append(i)
+    myList_Comprehension = [i for i in range(1,11) if i != 3 and i != 7]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_12():
-    array = []
+    myList = []
     for x in range (1,101):
-        array.append(0)
-    print(array)
-    print(len(array))
-## Zadanie_13 w ramach comprehension
+        myList.append(0)
+    myList_Comprehension = [0 for i in range(1,101)]
+    print(myList)
+    print(myList_Comprehension)
 def Zadanie_14():
     array = list(range(1,101))
     print(array)
@@ -123,7 +161,7 @@ def Zadanie_32():
     print(array_1)
     first_number = array_1.pop(5)
     last_number = array_1.pop()
-    array_1.append(first_number)
+    array_1.append(first_number) ##Append zawsze dodaje na koniec listy
     array_1.insert(5, last_number)
     print(array_1)
 def Zadanie_33():
@@ -210,13 +248,45 @@ def Zadanie_50():
     print(array_2)
 def Zadanie_51(): ## Do omówienia
     x = []
-    numbers = array_2[2:5]
-    for i in numbers:
-        x.append(i)
+    x = array_2[2:5]
     x.extend(x)
     print(x)
-Zadanie_51()
-
-
+def Zadanie_52():
+    l_1 = array_2[1:8]
+    l_2 = array_2[7:0:-1]
+    l_1.extend(l_2)
+    print(l_1)
+def Zadanie_53():
+    matrix = [[1, 2], [2, 3], [3, 4]]
+    print(matrix[:][0])
+def Zadanie_54():
+    matrix = [[1, 2], [3, 4], [5, 6]]
+    print(matrix[1][1])
+def Zadanie_55():
+    min = 1
+    max = 6
+    for i in range(1,10):
+        numbers = ""
+        space = " "
+        for j in range(min,max):
+            numbers += str(j) * i + space
+            print(numbers)
+        break
+def Zadanie_56(): # Do omówienia
+    min = 1
+    max = 4
+    for i in range(1, 4):
+        numbers = ""
+        space = " "
+        for j in range(min, max):
+            numbers +=str(j) * i + space
+            print(numbers)
+        print(numbers)
+        break
+#def Zadanie_57() Do omówienia
+def Zadanie_58():
+    myList = ["a", "b", "c", "d"]
+    for x, y in enumerate(myList):
+        print(x, y)
 
 
