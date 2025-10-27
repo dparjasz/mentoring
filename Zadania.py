@@ -452,7 +452,7 @@ def exec_2_14():
     print(len(l_1), l_1)
     l_1.pop(2)
     print(len(l_1), l_1)
-    #Metoda get dostępna jest tylko dla słownika i pobiera konkretny element
+    #Metoda get dostępna jest tylko dla słownika i pobiera konkretną wartość klucza
     d_1 = dict({"name": "Lorem", "surname": "Ipsum", "age": 25})
     print(len(d_1), d_1)
     print(len(d_1), d_1.get("age"))
