@@ -296,11 +296,10 @@ def exec_46():
 
 
 def exec_47():
-    my_list = []
-    array_2.sort(reverse=True)
-    for i in array_2[::2]:
-        my_list.append(i)
-    print(my_list)
+    array_2.sort(reverse= True)
+    mylist = [i for i in array_2[::2]]
+    print(mylist)
+exec_47()
 
 
 def exec_48():
@@ -462,6 +461,41 @@ def exec_2_15():
     d_1 = dict({"name": "Lorem", "surname": "Ipsum", "age": 25})
     d_2 = d_1.copy()
     print(d_2)
+
+
+def exec_2_16():
+    d_1 = dict({1: 9})
+    d_2 = dict({2: 8})
+    d_1.update(d_2)
+    print(d_1)
+
+
+def exec_2_17():
+    tuple_list = ([("a", 1), ("b", 2)])
+    d_1 = dict({})
+    d_1.update(tuple_list)
+    print(d_1)
+
+
+def exec_2_18():
+    d_1 = dict({"name": "Lorem", "surname": "Ipsum", "age": 30, "City": None})
+    print(d_1)
+    if d_1.get("City") is None:
+        d_1["City"] = "Radom"
+    print(d_1)
+
+
+def exec_2_19():
+    mylist = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
+    d_1 = dict({})
+    for i in mylist:
+        d_1[i] = mylist.count(i)
+    print(d_1)
+
+
+def recurrent_function():
+    print("Funkcja rekurencyjna")
+
 
 
 
