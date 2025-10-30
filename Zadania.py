@@ -1,9 +1,14 @@
-#Lista_zadań
 
+
+#Lista_zadań
 array_1 = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
 array_2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 list_1 = [3, 4, 5, 2, 3, 3, 2, 1, 4]
+my_list = [1, 1, 4, 2, 3, 3, 2, 1, 4]
+
+
 #Zadania
+
 
 def exec_1():
     mylist = []
@@ -133,13 +138,8 @@ def exec_16():
 
 
 def exec_17():
-    if 10 in array_1:
-         print(True)
-    else:
-         print(False)
-    my_list = [True if i == 10 else False for i in array_1]
-    print(my_list)
-    print(True if 10 in array_1 else False)
+    my_list_1 = [True if i == 10 else False for i in array_1]
+    print(my_list_1)
 
 
 def exec_18():
@@ -215,58 +215,35 @@ def exec_33():
 
 
 def exec_34():
-    my_list= []
-    for i in array_1:
-        if array_1.count(i) > 1:
-            my_list.append(i)
-    print(my_list)
+    my_list_1 = [i for i in array_1 if array_1.count(i) > 1]
+    print(my_list_1)
 
 
 def exec_35():
-    my_list = []
-    for i in array_1:
-        if array_1.count(i) > 1:
-            continue
-        my_list.append(i)
-    print(my_list)
+    my_list_1 = [i for i in array_1 if array_1.count(i) ==1]
+    print(my_list_1)
 
 
 def exec_36():
-    print(array_1)
-    my_list = []
-    for i in array_1:
-        my_list.insert(0, i)
-    print(my_list)
     print(array_1[::-1])
 
 
 def exec_37():
-    print(array_1)
-    for i in array_1:
-        if i > 5:
-            x = array_1.index(i)
-            array_1[x] = 'True'
-    print(array_1)
+    my_list_1 = [True if i > 5 else i for i in array_1]
+    print(my_list_1)
 
 
 def exec_38():
     print(sum([i for i in array_1 if i % 2 == 1]))
 
 def exec_39():
-    my_list = []
-    for i in array_1:
-        if array_1.index(i) % 2 == 0:
-           my_list.append(i)
-    print(sum(my_list))
+    my_list_1 = [i for i in array_1 if array_1.index(i) % 2 ==0]
+    print(sum(my_list_1))
 
 
 def exec_40():
-    my_list = []
-    for i in array_1:
-        if array_1.count(i) > 1:
-            count_1 = array_1.count(i)
-            my_list.append([i, count_1])
-    print(max(my_list))
+    my_list_1 = [(i, array_1.count(i)) for i in array_1 if array_1.count(i) > 1]
+    print(max(my_list_1))
 
 
 def exec_41():
@@ -299,7 +276,6 @@ def exec_47():
     array_2.sort(reverse= True)
     mylist = [i for i in array_2[::2]]
     print(mylist)
-exec_47()
 
 
 def exec_48():
@@ -351,13 +327,27 @@ def exec_55(n: int):
         print(my_list)
 
 
-def exec_56(): #DO ZROBIENIA
-    print("do zrobienia")
+def exec_56(n: int):
+    if n > 3:
+        n = 3
+    for i in range(1,n+1):
+        for j in range(1, i+1):
+            print(j, end="")
+        print()
+    for i in range(n-1,0,-1):
+        for j in range(1, i+1):
+            print(j, end="")
+        print()
 
-def exec_57():
-    # Sprawdź każdy element listy i jeżeli są takie same to nie zliczaj, a jak różne to dodaj
-    print("")
 
+def exec_57(x: list):
+    previous_element = x[0]
+    count_changes = 0
+    for i in x[1:]:
+       if i != previous_element:
+            count_changes+=1
+       previous_element = i
+    print(count_changes)
 
 def exec_58():
     mylist = ["a", "b", "c", "d"]
@@ -493,12 +483,32 @@ def exec_2_19():
     print(d_1)
 
 
-def recurrent_function():
-    print("Funkcja rekurencyjna")
+def recurrent_function(n): #10
+    if n == 0:
+        print(0)
+    else:
+        print(n)
+        recurrent_function(n-1)
+
+def reccurent_function_1(n):
+    if n == 10:
+        print(10)
+    else:
+        print(n)
+        reccurent_function_1(n+1)
 
 
+def decorator(func):
+    def wrapper():
+        print("--------")
+        func()
+        print("--------")
+    return wrapper()
 
 
+@decorator
+def Hello():
+    print("Witaj świecie")
 
 
 
