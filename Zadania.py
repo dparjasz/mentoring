@@ -1,4 +1,4 @@
-
+import time
 
 #Lista_zadań
 array_1 = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
@@ -483,7 +483,7 @@ def exec_2_19():
     print(d_1)
 
 
-def recurrent_function(n): #10
+def recurrent_function(n):
     if n == 0:
         print(0)
     else:
@@ -500,15 +500,18 @@ def reccurent_function_1(n):
 
 def decorator(func):
     def wrapper():
-        print("--------")
+        print("Start")
+        time.sleep(1)
         func()
-        print("--------")
+        print("Koniec")
     return wrapper()
 
 
 @decorator
-def Hello():
-    print("Witaj świecie")
+def NumberCount():
+    for i in range(1,11):
+        print(i)
+        time.sleep(1)
 
 
 
