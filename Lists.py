@@ -461,9 +461,10 @@ def exec_2_16():
 
 
 def exec_2_17():
-    tuple_list = ([("a", 1), ("b", 2)])
-    d_1 = dict({})
-    d_1.update(tuple_list)
+    tuple_list = tuple([("a", 1), ("b", 2)])
+    ##d_1 = dict({})
+    d_1 = {k:v for (k, v) in tuple_list}
+    #Do wykorzystania dict comprehension
     print(d_1)
 
 
@@ -476,26 +477,24 @@ def exec_2_18():
 
 
 def exec_2_19():
-    mylist = [1, 2, 4, 5, 4, 3, 2, 5, 1, 10, 7, 5, 3, 4, 5, 1, 12, 3]
-    d_1 = dict({})
+    mylist = [1,4,5,6,7,8,5,4,2,1]
+    d_1 = dict()
     for i in mylist:
-        d_1[i] = mylist.count(i)
+       d_1[i] = d_1.get(i, 0) + 1
     print(d_1)
 
 
 def recurrent_function(n):
-    if n == 0:
-        print(0)
-    else:
+    if n >= 0:
         print(n)
-        recurrent_function(n-1)
+        recurrent_function(n - 15)
+
 
 def reccurent_function_1(n):
     if n == 10:
         print(10)
     else:
-        print(n)
-        reccurent_function_1(n+1)
+        print(n), reccurent_function_1(n+1)
 
 
 def decorator(func):
@@ -507,7 +506,7 @@ def decorator(func):
     return wrapper()
 
 
-@decorator
+#@decorator
 def NumberCount():
     for i in range(1,11):
         print(i)
