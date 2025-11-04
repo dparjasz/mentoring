@@ -298,8 +298,32 @@ def exec_3_7():
 
 
 def exec_3_8(n):
-    dict_0 = {n: n**2 for n in range(n)}
+    dict_0 = {n: n+1 for n in range(n)}
     print(dict_0)
 
 
-#def exec_3_9():
+def exec_3_9(n):
+    dict_0 = {n: n*2 for n in range(n)}
+    print(sum(dict_0.values()))
+
+
+def exec_3_10():
+    d1 = {"a": 100, "b": 200, "c": 300}
+    d2 = {'a': 300, 'b': 200, 'd': 400}
+    for i in d1.keys():
+       if i in d2.keys():
+           d1.update({i: d1[i] + d2[i]})
+    for y in d2.keys():
+       if y not in d1.keys():
+          d1.update({y: d2[y]})
+    print(d1)
+
+
+def exec_3_11():
+    user_input = input("Wpisz slowo: ")
+    d_1 = dict()
+    for i in user_input.lower():
+        d_1[i] = d_1.get(i, 0) + 1
+    print(d_1)
+
+exec_3_11()
