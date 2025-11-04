@@ -338,6 +338,7 @@ def exec_56(n: int):
         for j in range(1, i+1):
             print(j, end="")
         print()
+        print()
 
 
 def exec_57(x: list):
