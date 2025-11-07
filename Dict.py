@@ -1,5 +1,13 @@
 import time
+from email.policy import default
+from logging.config import dictConfig
+from multiprocessing.reduction import steal_handle
+
 #DICTIONARIES
+students = {"Anna Kowalska": 5, "Celina Wiśniewska": 3, "Damian Wójcik": 2.5, "Iga Dąbrowska": 2,
+            "Elżbieta Kamińska": 5, "Filip Zieliński": 4, "Gabriela Szymańska": 3, "Hubert Lewandowski": 5,
+            "Jakub Kozłowski": 4, "Karolina Jankowska": 5, "Łukasz Mazur": 3.5, "Magdalena Krawczyk": 2,
+            "Bartosz Nowak": 4.5, "Norbert Król": 4, "Oliwia Pawlak": 5}
 def exec_1_2():
     d_1 = {}
     d_2 = dict()
@@ -326,4 +334,62 @@ def exec_3_11():
         d_1[i] = d_1.get(i, 0) + 1
     print(d_1)
 
-exec_3_11()
+
+def exec_3_12(sentence: str):
+    #dict_for_word = {i: 0 #Co tutaj można być#  for i in word.split()}
+    dict_for_word = dict()
+    for i in sentence.split():
+        dict_for_word[i] = dict_for_word.get(i, 0) + 1
+    print(dict_for_word)
+
+
+
+def exec_3_13():
+    dict_func = {'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12}
+    checkValue = [True if dict_func[i] == 12 else False for i in dict_func]
+    print(False if False in checkValue else True)
+
+#Do zrobienia zadanie 14
+
+def exec_3_15():
+    students_new = {k:(v if v == 5 else v+1) for k, v in students.items()}
+    print(students)
+    print(students_new)
+
+
+def exec_3_16():
+    temp_dict = dict()
+    for i in students:
+        if students[i] == min(students.values()):
+            temp_dict[i] = students[i]
+    print(temp_dict)
+
+
+def exec_3_17():
+    mark_to_find = 5
+    for i in students:
+        if students[i] == mark_to_find:
+            print(i,students[i])
+
+
+def exec_3_18():
+    temp_list_keys = [k for k in students.keys()]
+    temp_list_values = [v for v in students.values()]
+    avg = round(sum(temp_list_values) / len(temp_list_keys), 1)
+    print(avg)
+
+
+def exec_3_19():
+    my_students = students
+    for i in my_students.copy():
+        if my_students[i] >=3:
+            my_students.pop(i)
+    print(my_students)
+
+exec_3_19()
+
+
+
+
+
+

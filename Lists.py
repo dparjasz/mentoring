@@ -294,7 +294,6 @@ def exec_50():
     array_2 = empty_list
     print(array_2)
 
-
 def exec_51():
     x = array_2[2:5]
     y = x*2
@@ -337,7 +336,6 @@ def exec_56(n: int):
     for i in range(n-1,0,-1):
         for j in range(1, i+1):
             print(j, end="")
-        print()
         print()
 
 

@@ -1,3 +1,5 @@
+
+
 def exec_1():
     for i in range(1,11):
         for j in range(1,11):
@@ -56,7 +58,6 @@ def exec_6():
 
 
 def exec_7():
-    mylist = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     #znaki: +, -, |
     for i in range(17,0,-1):
        for j in range(9):
@@ -74,7 +75,27 @@ def exec_7():
                         print("-", end = " ")
        print(int(i/2) if i % 2 ==0 else "")
 
-exec_7()
+def exec_8(r: int, c: int, m: list):
+    #obsługa zera dodatkowo
+    this_r = r - 1
+    this_c = c - 1
+    row_list = [j for j in m[this_r]]
+    print(f"Wybrany wiersz {r} \n"
+          f"Suma wszystkich elementów: {sum(row_list)} \n"
+          f"Oto elementy: {row_list}")
+    column_list = [i[this_c] for i in m]
+    print(f"Wybrana kolumna {c} \n"
+          f"Suma wszystkich elementów: {sum(column_list)} \n"
+          f"Oto elementy: {column_list}")
+
+
+row = input("Podaj wiersz: ")
+column = input("Podaj kolumne: ")
+matrix = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+
+exec_8(int(row), int(column),matrix)
 
 
 
