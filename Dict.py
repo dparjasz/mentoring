@@ -381,12 +381,20 @@ def exec_3_18():
 
 def exec_3_19():
     my_students = students
-    for i in my_students.copy():
+    for i in my_students.copy(): #Ciekawy sposób podejścia poprzez kopiowanie.
         if my_students[i] >=3:
             my_students.pop(i)
     print(my_students)
 
-exec_3_19()
+
+def exec_3_20():
+    my_student = dict(sorted(students.items()))
+    print(my_student)
+
+
+def exec_3_21():
+    my_students = dict(sorted(students.items())) # do omówienia jak się dopchać do nazwiska
+    print(my_students)
 
 
 
