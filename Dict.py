@@ -423,10 +423,7 @@ def exec_3_22():
 
 
 def exec_3_23():
-    temporary_list = list()
-    for i in students.items():
-        temporary_list.append(i)
-    temporary_list = sorted([i for i in students.items()], key=lambda item: item[1], reverse=False)
+    temporary_list = list(sorted([i for i in students.items()], key=lambda item: item[1], reverse=False))
     print(temporary_list[:3])
 
 
