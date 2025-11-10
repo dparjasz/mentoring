@@ -1,7 +1,4 @@
 import time
-from email.policy import default
-from logging.config import dictConfig
-from multiprocessing.reduction import steal_handle
 
 #DICTIONARIES
 students = {"Anna Kowalska": 5, "Celina Wiśniewska": 3, "Damian Wójcik": 2.5, "Iga Dąbrowska": 2,
@@ -160,7 +157,7 @@ def decorator(func):
 
 
 #@decorator
-def NumberCount():
+def number_count():
     for i in range(1,11):
         print(i)
         time.sleep(1)
@@ -237,7 +234,7 @@ def exec_3_4():
 
 
 def exec_3_5():
-    dic_0 = {
+    dic_temp = dict({
         "Marcin":
             {
                 "wiek": 15,
@@ -259,9 +256,9 @@ def exec_3_5():
                 "odgłos": "__",
                 "ilość_nóg": 4
             }
-    }
-    dic_0["Krzysztof"] ={"wiek": 15, "gatunek": "tygrys", "odgłos": "miau", "ilość_nóg": 4}
-    dic_0.update({"Krzysztof":
+    })
+    dic_temp["Krzysztof"] ={"wiek": 15, "gatunek": "tygrys", "odgłos": "miau", "ilość_nóg": 4}
+    dic_temp.update({"Krzysztof":
             {
                 "wiek": 15,
                 "gatunek": "tygrys",
@@ -269,7 +266,7 @@ def exec_3_5():
                 "ilość_nóg": 4
             }
     })
-    print(dic_0)
+    print(dic_temp)
 
 
 def exec_3_6():
@@ -347,8 +344,8 @@ def exec_3_12(sentence: str):
 
 def exec_3_13():
     dict_func = {'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12}
-    checkValue = [True if dict_func[i] == 12 else False for i in dict_func]
-    print(all(checkValue))
+    check_value = [True if dict_func[i] == 12 else False for i in dict_func]
+    print(all(check_value))
 
 #14 do omówienia jak zrobić
 def exec_3_14():
@@ -440,6 +437,7 @@ def exec_3_24():
             print(f"Usunięto {i, students[i]}")
             students.pop(i)
     print(students)
+
 
 def exec_3_25():
     students.update({None: 3})
