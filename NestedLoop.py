@@ -11,43 +11,31 @@ def exec_2(x, y):
         for j in range(y):
             print("*", end="")
         print()
-#exec_2(5,5)
 
 def exec_3(n):
     #n = bok kwadratu
-    for i in range(0, n):
-        for j in range(1, n+1):
-            if (i+j) % 2 != 0:
-                print("*", end = "  ")
-            else:
-                print("", end = "   ")
-        print()
-
+    if n % 2 == 0:
+        print("Musi być nieparzysta")
+    else:
+        for i in range(0, n):
+            for j in range(1, n+1):
+                if (i+j) % 2 == 0:
+                    print("", end="  ")
+                else:
+                    print("*", end="  ")
+            print()
 
 def exec_3a(n):
-    #n = bok kwadratu
-    if n <= 4:
-        n = 4
-    for i in range(0, n):
-        for j in range(1, n+1):
-            print(i+j, end = "")
-            #if (i+j) % 2 != 0:
-              #  print("", end = "  ")
-           # else:
-                #print("*", end = "   ")
-        print()
-#exec_3a(2)
-
+    print("")
 def exec_4(n):
-    if n < 3:
-        n = 3
-    for i in range(1, n+1):
-        for j in range(n-i):
-            print(j , end = "   ")
-        for k in range(1,2*i):
-            print(k, end = "   ")
+    for j in range(n):
+        for i in range(j, n):
+            print("", end="   ")
+        for i in range(j):
+            print("*", end="  ")
+        for i in range(j + 1):
+            print("*", end="  ")
         print()
-
 
 
 def exec_6():
@@ -60,12 +48,12 @@ def exec_6():
 def exec_7():
     #znaki: +, -, |
     for i in range(17,0,-1):
-       for j in range(9):
+       for j in range(8):
             if i % 2 != 0:
                 print("+", end=" ")
             else:
                 print("|", end=" ")
-            for k in range(2):
+            for k in range(1):
                 if i % 2 == 0:
                     print(" ", end = " ")
                 else:
@@ -73,9 +61,12 @@ def exec_7():
                         print("", end = "")
                     else:
                         print("-", end = " ")
+       print("+", end=" ") if i % 2 != 0 else print("|", end=" ")
        print(int(i/2) if i % 2 ==0 else "")
 
+
 def exec_8(r: int, c: int, m: list):
+
     #obsługa zera dodatkowo
     this_r = r - 1
     this_c = c - 1
@@ -89,13 +80,13 @@ def exec_8(r: int, c: int, m: list):
           f"Oto elementy: {column_list}")
 
 
-row = input("Podaj wiersz: ")
-column = input("Podaj kolumne: ")
-matrix = [[1, 2, 3],
-           [4, 5, 6],
-           [7, 8, 9]]
-
-exec_8(int(row), int(column),matrix)
+# row = input("Podaj wiersz: ")
+# column = input("Podaj kolumne: ")
+# matrix = [[1, 2, 3],
+#            [4, 5, 6],
+#            [7, 8, 9]]
+#
+# exec_8(int(row), int(column), matrix)
 
 
 

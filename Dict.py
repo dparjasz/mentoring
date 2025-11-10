@@ -7,7 +7,7 @@ from multiprocessing.reduction import steal_handle
 students = {"Anna Kowalska": 5, "Celina Wiśniewska": 3, "Damian Wójcik": 2.5, "Iga Dąbrowska": 2,
             "Elżbieta Kamińska": 5, "Filip Zieliński": 4, "Gabriela Szymańska": 3, "Hubert Lewandowski": 5,
             "Jakub Kozłowski": 4, "Karolina Jankowska": 5, "Łukasz Mazur": 3.5, "Magdalena Krawczyk": 2,
-            "Bartosz Nowak": 4.5, "Norbert Król": 4, "Oliwia Pawlak": 5}
+            "Bartosz Nowak": 4.5, "Norbert Król": 4, "Oliwia Pawlak": 5, "Damian At-": 5}
 def exec_1_2():
     d_1 = {}
     d_2 = dict()
@@ -152,6 +152,7 @@ def reccurent_function_1(n):
 def decorator(func):
     def wrapper():
         print("Start")
+
         time.sleep(1)
         func()
         print("Koniec")
@@ -315,7 +316,7 @@ def exec_3_9(n):
     print(sum(dict_0.values()))
 
 
-def exec_3_10():
+def exec_3_10(): #D3 = d1.copy() i do tego
     d1 = {"a": 100, "b": 200, "c": 300}
     d2 = {'a': 300, 'b': 200, 'd': 400}
     for i in d1.keys():
@@ -347,9 +348,19 @@ def exec_3_12(sentence: str):
 def exec_3_13():
     dict_func = {'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12}
     checkValue = [True if dict_func[i] == 12 else False for i in dict_func]
-    print(False if False in checkValue else True)
+    print(all(checkValue))
 
-#Do zrobienia zadanie 14
+#14 do omówienia jak zrobić
+def exec_3_14():
+    element = 0
+    my_dict= {"Człowiek": {"imie": "Damian", "nazwisko": "Parjaszewski"}}
+    if isinstance(my_dict, dict):
+        element = element + 1
+        print(True)
+        print(element)
+    else:
+        print(False)
+
 
 def exec_3_15():
     students_new = {k:(v if v == 5 else v+1) for k, v in students.items()}
@@ -381,7 +392,7 @@ def exec_3_18():
 
 def exec_3_19():
     my_students = students
-    for i in my_students.copy(): #Ciekawy sposób podejścia poprzez kopiowanie.
+    for i in my_students.copy():
         if my_students[i] >=3:
             my_students.pop(i)
     print(my_students)
@@ -393,10 +404,56 @@ def exec_3_20():
 
 
 def exec_3_21():
-    my_students = dict(sorted(students.items())) # do omówienia jak się dopchać do nazwiska
-    print(my_students)
+    sorted_surname_dict = dict()
+    temporary_list = [i.split(" ") for i in students]
+    surname_list = sorted([y[1] for y in temporary_list])
+    #Obsługa małych liter w słowniku - należy pamiętać
+    for surname in surname_list:
+        for single_element in students:
+            if surname in single_element:
+                sorted_surname_dict[single_element] = students[single_element]
+                break
+    print(sorted_surname_dict)
 
 
+def exec_3_22():
+    surname_dict = dict()
+    temporary_list = [i.split(" ") for i in students]
+    surname_list = [y[1] for y in temporary_list]
+    for surname in surname_list:
+            surname_dict[surname] = None
+    print(surname_dict)
+
+
+def exec_3_23():
+    temporary_list = list()
+    for i in students.items():
+        temporary_list.append(i)
+    temporary_list = sorted([i for i in students.items()], key=lambda item: item[1], reverse=False)
+    print(temporary_list[:3])
+
+
+def exec_3_24():
+    students.update({"Adam Ondra": None}) #Wartość może być pusta bez "None"? Jak wtedy to obsłużyć
+    for i in students.copy():
+        if students[i] is None:
+            print(f"Usunięto {i, students[i]}")
+            students.pop(i)
+    print(students)
+
+def exec_3_25():
+    students.update({None: 3})
+    for i in students.copy():
+        if i is None:
+            print(f"Usunięto {i, students[i]}")
+            students.pop(i)
+    print(students)
+
+
+def exec_3_26():
+    #Nie da się tego zamienić jeżeli klucze się powtarzają (np. 5)
+    temporary_dict = dict({w: k for k, w in students.items()})
+    print(temporary_dict)
 
 
 
