@@ -1,3 +1,5 @@
+import sys
+
 
 def exec_1():
     my_tuple = (1,2,3)
@@ -166,12 +168,25 @@ def exec_21():
     my_set.add(4)
     print(my_set)
     my_set_frozen = frozenset(my_set)
-    my_dict = dict()
-    for i in my_set:
-        my_dict[i]= i
-    print(my_dict)
-exec_21()
 
+def exec_22():
+    list_comprehension = [i for i in range(1,1001)]
+    tuple_comprehension_gen = (i for i in range(1, 1001))
+    tuple_comprehension_tuple = tuple((i for i in range(1, 1001)))
+
+    print(type(list_comprehension))
+    print(type(tuple_comprehension_gen))
+    print(type(tuple_comprehension_tuple))
+    print(sys.getsizeof(list_comprehension))
+    print(sys.getsizeof(tuple_comprehension_gen))
+    print(sys.getsizeof(tuple_comprehension_tuple))
+
+
+def exec_generator(n):
+    for i in range(n):
+        yield i
+
+print(next(exec_generator(1000000)))
 
 
 
