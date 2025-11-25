@@ -1,10 +1,11 @@
 import time
+from email.encoders import encode_base64
 
 #DICTIONARIES
 students = {"Anna Kowalska": 5, "Celina Wiśniewska": 3, "Damian Wójcik": 2.5, "Iga Dąbrowska": 2,
             "Elżbieta Kamińska": 5, "Filip Zieliński": 4, "Gabriela Szymańska": 3, "Hubert Lewandowski": 5,
             "Jakub Kozłowski": 4, "Karolina Jankowska": 5, "Łukasz Mazur": 3.5, "Magdalena Krawczyk": 2,
-            "Bartosz Nowak": 4.5, "Norbert Król": 4, "Oliwia Pawlak": 5, "Damian At-": 5}
+            "Bartosz Nowak": 4.5, "Norbert Król": 4, "Oliwia Pawlak": 5, "Damian At-": 1}
 def exec_1_2():
     d_1 = {}
     d_2 = dict()
@@ -115,6 +116,7 @@ def exec_2_17():
     d_1 = {k:v for (k, v) in tuple_list}
     #Do wykorzystania dict comprehension
     print(d_1)
+
 
 
 def exec_2_18():
@@ -347,14 +349,13 @@ def exec_3_13():
     check_value = [True if dict_func[i] == 12 else False for i in dict_func]
     print(all(check_value))
 
+
 #14 do omówienia jak zrobić
 def exec_3_14():
     element = 0
     my_dict= {"Człowiek": {"imie": "Damian", "nazwisko": "Parjaszewski"}}
     if isinstance(my_dict, dict):
-        element = element + 1
         print(True)
-        print(element)
     else:
         print(False)
 
@@ -401,19 +402,20 @@ def exec_3_20():
 
 
 def exec_3_21():
-    sorted_surname_dict = dict()
-    temporary_list = [i.split(" ") for i in students]
-    surname_list = sorted([y[1] for y in temporary_list])
-    #Obsługa małych liter w słowniku - należy pamiętać
-    for surname in surname_list:
-        for single_element in students:
-            if surname in single_element:
-                sorted_surname_dict[single_element] = students[single_element]
-                break
-    print(sorted_surname_dict)
+    dict_new_2 = {key: value for key, value in sorted(students.items(), key=lambda item: item[0].split()[-1])}
+    print(dict_new_2)
 
+exec_3_21()
+
+def exec_3_21_a():
+    second_list = sorted([i.split(" ") for i in students], key=lambda item: item[1], reverse=False)
+    dict_new = dict({k + " " + w: students[k + " " + w] for k, w in second_list})
+    print(dict_new)
+
+exec_3_21_a()
 
 def exec_3_22():
+    #Tutaj muszą być dodatkowo oceny w ramach Dictionary Comprehension
     surname_dict = dict()
     temporary_list = [i.split(" ") for i in students]
     surname_list = [y[1] for y in temporary_list]
@@ -446,10 +448,8 @@ def exec_3_25():
 
 
 def exec_3_26():
-    #Nie da się tego zamienić jeżeli klucze się powtarzają (np. 5)
     temporary_dict = dict({w: k for k, w in students.items()})
     print(temporary_dict)
-
 
 
 

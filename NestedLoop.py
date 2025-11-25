@@ -27,6 +27,9 @@ def exec_3(n):
 
 def exec_3a(n):
     print("")
+
+
+
 def exec_4(n):
     for j in range(n):
         for i in range(j, n):
@@ -37,7 +40,6 @@ def exec_4(n):
             print("*", end="  ")
         print()
 
-
 def exec_6():
     for i in range(8):
         for j in range(8):
@@ -46,21 +48,11 @@ def exec_6():
 
 
 def exec_7():
-    #znaki: +, -, |
     for i in range(17,0,-1):
        for j in range(8):
-            if i % 2 != 0:
-                print("+", end=" ")
-            else:
-                print("|", end=" ")
+            print("+", end = " ") if i % 2 !=0 else print("|", end = " ")
             for k in range(1):
-                if i % 2 == 0:
-                    print(" ", end = " ")
-                else:
-                    if j == 8:
-                        print("", end = "")
-                    else:
-                        print("-", end = " ")
+                print(" ", end = " ") if i % 2 == 0 else print("", end = "") if j == 8 else print("-", end = " ")
        print("+", end=" ") if i % 2 != 0 else print("|", end=" ")
        print(int(i/2) if i % 2 ==0 else "")
 
@@ -88,5 +80,32 @@ def exec_8(r: int, c: int, m: list):
 #
 # exec_8(int(row), int(column), matrix)
 
+def exec_11(n):
+    #Do ogarnięcia trójkąt Pascala w ramach pętli
+    for i in range(1, n+1):
+        for j in range(i):
+            print(i-j, end = " ")
+        print()
+exec_11(4)
 
 
+def exec_12(n):
+    for i in range(1,n+1):
+        for j in range(1, n+1):
+            print(i,j)
+        print()
+
+
+def decorator(func):
+    def wrapper():
+        my_function = func()
+        for i in my_function:
+            print("*", end = "")
+        print(my_function)
+    return wrapper()
+
+@decorator
+def exec_14():
+    return "Hello"
+
+exec_14
