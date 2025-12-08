@@ -8,14 +8,14 @@ def exec_1():
 
 
 def exec_2():
-    first_tuple = (1,2,3)
-    second_tuple = (4,5,6)
+    first_tuple = (1, 2, 3)
+    second_tuple = (4, 5, 6)
     third_tuple = first_tuple + second_tuple
     print(third_tuple)
 
 
 def exec_3():
-    my_list = [1,2,3,4]
+    my_list = [1, 2, 3, 4]
     my_tuple = tuple(my_list)
     print(my_tuple)
     print(type(my_tuple))
@@ -74,7 +74,7 @@ def exec_8():
     print(diff_sym_set)
 
 
-def exec_9(a: set,b: set):
+def exec_9(a: set, b: set):
     print(a.issubset(b))
 
 
@@ -142,7 +142,7 @@ def exec_17(lat: float, long: float):
     print(min(dict_with_euclides_range, key = dict_with_euclides_range.get))
 
 
-def exec_18():
+def exec_18(): ## Do zmiany, sortowanie całej listy po drugiem argumencie w tupli
     points = [(1, 2), (3, 4), (1, 2), (5, 6), (3, 4)]
     exec_a = set(points)
     my_list_comprehension = [tuple(sorted(i, reverse= True)) for i in exec_a]
