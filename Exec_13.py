@@ -1,6 +1,6 @@
 #Zadanie 13
-from logging import raiseExceptions
-class NoneType(Exception):
+from logging import raiseExceptions  # nie używane
+class NoneType(Exception):  # nazwy wyjątków kończą się na Error 
     """Exception for NoneType"""
 
 class EmptyListError(Exception):
@@ -9,7 +9,7 @@ class EmptyListError(Exception):
 class ValueNotFoundError(Exception):
     """Exception for not found value"""
 
-class Node:
+class Node: # to powinna być część Linked listy, wszystkie 3 atrybuty mają się znaleźć w klasie poniżej 
     def __init__(self, data=None, next=None, prev=None):
         self.data = data
         self.next = next
@@ -24,7 +24,7 @@ class LinkedList:
         new_element = Node(data)
         if self.head is None:
             self.head = new_element
-            data = self.head
+            data = self.head # użyj do tego innej nazwy zmiennej, po pierwsze zmienna data jest nadpisywana, a po drugie jest mylące 
         else:
             curr_item = self.head
             while True:
@@ -33,7 +33,7 @@ class LinkedList:
                     data = curr_item.next
                     break
                 curr_item = curr_item.next
-        return data.data
+        return data.data # metoda append nie powinna nic zwracać, jej celem jest dodanie elementu
 
 
     def find_value(self, value):
@@ -65,40 +65,44 @@ class LinkedList:
             if curr_item.next and curr_item.next.data == value:
                  curr_item.next = curr_item.next.next
                  is_deleted = True
+                # brakuje Ci wyjścia pętli po tym jak już usunięsz wartość
             curr_item = curr_item.next
         if not is_deleted:
             raise ValueNotFoundError("Brak wartości")
 
+    # Spóbuj zaimplementować to rozwiązanie wykorzustując metodę .join()
     def display_elements(self):
         if self.head is None:
             return "Pusta lista"
         first_item_data = self.head.data
         curr_item = self.head
         while curr_item.next is not None:
-          curr_item = curr_item.next
-          first_item_data+=f"{curr_item.data}"
+          curr_item = curr_item.next # wcięcia się tu nie zgadzają
+          first_item_data += f"{curr_item.data}"
         return first_item_data
 
     def reverese_elements(self ):
-        reverse_list = ll.display_elements()[::-1]
+        reverse_list = ll.display_elements()[::-1] # odwołujesz się tu do zmiennej globalnej i nie odwraca listy tylko tekst. 
+        # Metoda ta ma zamienić że głowa będzie ogonem, a ogon głową, odpowiednio przypisując obiekty do next
         return reverse_list
 
     def __len__(self):
         amount = 0
         curr_item = self.head
         while curr_item is not None:
-            amount+=1
+            amount += 1
             curr_item = curr_item.next
         return amount
 
     def __iter__(self):
+        self._iter_node = self.head
         return self
 
     def __next__(self):
        curr_item = self.head
        if curr_item is None:
            raise StopIteration
-       self.head = self.head.next
+       self.head = self.head.next # ta komenta sprawi, że stracisz głowę bezpowrotnie z każdym wywołaniem next(), aby tego uniknąć zaimplementuj użycie dodanej przezemnie zmiennej self._iter_node
        return curr_item.data
 
     def __str__(self):
@@ -115,7 +119,7 @@ ll = LinkedList()
 ll.append_value('A')
 ll.append_value('B')
 ll.__iter__()
-print(ll.__next__())
+print(ll.__next__()) # W Python'ie nie wywyłujemy metod magicznych wprost. Użyj zamiast tego odpowiadającej metody. 
 print(ll.__next__())
 print(ll.__next__())
 print(ll.__next__())
