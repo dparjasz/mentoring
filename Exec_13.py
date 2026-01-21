@@ -1,4 +1,5 @@
 #Zadanie 13
+
 from logging import raiseExceptions
 class NoneType(Exception):
     """Exception for NoneType"""
