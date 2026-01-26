@@ -161,6 +161,11 @@ def buble_sort_1(x):
 class NoneType(Exception):
     """Exception for NoneType"""
 
+class EmptyListError(Exception):
+    """Exception for empty List"""
+
+class ValueNotFoundError(Exception):
+    """Exception for not found value"""
 
 class Node:
     def __init__(self, data=None, next=None, prev=None):
@@ -172,65 +177,95 @@ class LinkedList:
     def __init__(self, head=None, tail=None):
         self.head = head
         self.tail = tail
-        self.count = 0
 
     def append_value(self, data):
         new_element = Node(data)
         if self.head is None:
             self.head = new_element
-            self.count = self.count + 1
             return
         curr_item = self.head
         while True:
             if curr_item.next is None:
                 curr_item.next = new_element
-                self.count = self.count + 1
-                return
+                break
             curr_item = curr_item.next
 
     def find_value(self, value):
-        curr_item = self.head
-        if curr_item is None:
+        if self.head is None:
             print("Lista jest pusta")
-        while curr_item.data != value: #Jak obsłuzyć błąd jak na przykład wpisze "C"?
-            curr_item = curr_item.next
-        print(f"Odnaleziono {value} w {curr_item}")
-
-
-    def delete_first_value(self, value):
-        curr_item = self.head
-        if curr_item.data == value:
-            self.head = curr_item.next
-            self.count = self.count - 1
-            return
-
-    def display_elements(self):
-        elements = []
+        if self.head.data == value:
+            return f"Wartość {self.head.data} odnaleziono w {self.head}"
         curr_item = self.head
         while curr_item is not None:
-            elements.append(curr_item.data)
+            if curr_item.next and curr_item.next.data == value:
+                return f"Odnaleziono {curr_item.data} w {curr_item}"
             curr_item = curr_item.next
-        elements.append("None")
-        print(elements)
+        return (f"Odnaleziono {value} w {curr_item}")
+
+    def delete_value(self, value):
+        if self.head is None:
+            raise EmptyListError("Lista jest pusta")
+        if self.head.data == value:
+            self.head = self.head.next
+            return
+        curr_item = self.head #Wartość to 1
+        while curr_item is not None:
+            if curr_item.next and curr_item.next.data == value:
+                curr_item.next = curr_item.next.next
+            curr_item = curr_item.next
+        return
+
+    def display_elements(self):
+        if self.head is None:
+            return "Pusta lista"
+        first_item_data = self.head.data
+        curr_item = self.head
+        while curr_item.next is not None:
+          curr_item = curr_item.next
+          first_item_data+=f",{curr_item.data}"
+        return first_item_data
+
+    def reverese_elements(self ):
+        reverse_list = ll.display_elements()[::-1]
+        return reverse_list
 
     def __len__(self):
-        return self.count
+        amount = 0
+        if self.head is None:
+            print(0)
+        curr_item = self.head
+        while curr_item is not None:
+            amount+=1
+            curr_item = curr_item.next
+        return f"Liczba elementów na liście: {amount}"
 
     def __iter__(self):
-        return self.head.data
+        return self
 
     def __next__(self):
         curr_item = self.head
         if curr_item is None:
             print("brak")
         curr_item = curr_item.next
+        #Stop_Iteration - do przeczytania
         return curr_item.data
 
+    def __str__(self):
+        curr_item = self.head
+        to_be_printed = curr_item.data
+        while curr_item.next is not None:
+             curr_item = curr_item.next
+             to_be_printed+=f"-->{curr_item.data}"
+        return to_be_printed
+
+
+
 ll = LinkedList()
-ll.append_value("A")
-print(f"Liczba elementów na liście: {ll.__len__()}")
-ll.display_elements()
-ll.append_value("B")
-print(f"Liczba elementów na liście: {ll.__len__()}")
-print(ll.__iter__())
-print(ll.__next__())
+ll.append_value('A')
+ll.append_value('B')
+ll.append_value('C')
+ll.append_value('D')
+ll.append_value('E')
+ll.find_value('A')
+
+

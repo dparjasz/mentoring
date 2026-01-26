@@ -1,6 +1,5 @@
 #Zadanie 13
-from logging import raiseExceptions
-class NoneType(Exception):
+class NoneTypeError(Exception):
     """Exception for NoneType"""
 
 class EmptyListError(Exception):
@@ -24,17 +23,14 @@ class LinkedList:
         new_element = Node(data)
         if self.head is None:
             self.head = new_element
-            data = self.head
         else:
             curr_item = self.head
             while True:
                 if curr_item.next is None:
                     curr_item.next = new_element
-                    data = curr_item.next
+                    self.tail = curr_item.next
                     break
                 curr_item = curr_item.next
-        return data.data
-
 
     def find_value(self, value):
         is_found = False
@@ -49,6 +45,7 @@ class LinkedList:
             if curr_item and curr_item.data == value:
                 found_value = curr_item
                 is_found = True
+                break
             curr_item = curr_item.next
         if is_found:
             return found_value
@@ -71,17 +68,37 @@ class LinkedList:
 
     def display_elements(self):
         if self.head is None:
-            return "Pusta lista"
-        first_item_data = self.head.data
+            data = self.head
+        data = self.head.data
         curr_item = self.head
         while curr_item.next is not None:
           curr_item = curr_item.next
-          first_item_data+=f"{curr_item.data}"
-        return first_item_data
+          data += curr_item.data
+        return data
 
-    def reverese_elements(self ):
-        reverse_list = ll.display_elements()[::-1]
-        return reverse_list
+    def display_elements_2(self): #Metoda join():
+        temp_list = list()
+        if self.head is None:
+            raise EmptyListError("Lista pusta")
+        curr_item = self.head
+        curr_data = self.head.data
+        temp_list.append(curr_data)
+        while curr_item.next is not None:
+            temp_list.append(curr_item.next.data)
+            curr_item = curr_item.next
+        x = '-->'.join(temp_list)
+        return x
+
+    def reverse_elements(self):
+        prev_item = None
+        curr_item = self.head
+        while curr_item:
+            next_item = curr_item.next
+            curr_item.next = prev_item
+            prev_item = curr_item
+            curr_item = next_item
+        return prev_item
+
 
     def __len__(self):
         amount = 0
@@ -95,11 +112,13 @@ class LinkedList:
         return self
 
     def __next__(self):
-       curr_item = self.head
-       if curr_item is None:
-           raise StopIteration
-       self.head = self.head.next
-       return curr_item.data
+        if self.head is None:
+            raise StopIteration
+        else:
+            item = self.head.data
+            self.head = self.head.next
+            return item
+
 
     def __str__(self):
         curr_item = self.head
@@ -114,11 +133,20 @@ class LinkedList:
 ll = LinkedList()
 ll.append_value('A')
 ll.append_value('B')
-ll.__iter__()
-print(ll.__next__())
-print(ll.__next__())
-print(ll.__next__())
-print(ll.__next__())
+ll.append_value('C')
+ll.append_value('D')
+
+x = iter(ll)
+print(next(x))
+print(next(x))
+print(next(x))
+
+
+
+
+
+
+
 
 
 

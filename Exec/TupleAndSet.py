@@ -188,6 +188,22 @@ def exec_generator(n):
 
 print(next(exec_generator(1000000)))
 
+#Collatz
+collatz_list = list()
+def collatz(n: float):
+    if n == 1:
+        print(n)
+    else:
+        if n % 2 == 0:
+            n = n * 0.5
+            collatz_list.append(n)
+            collatz(n)
+        else:
+            n = (3 * n) + 1
+            collatz_list.append(n)
+            collatz(n)
 
+collatz(6034302301)
+print(collatz_list)
 
 
