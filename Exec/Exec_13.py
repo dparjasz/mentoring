@@ -115,9 +115,9 @@ class LinkedList:
         if self.head is None:
             raise StopIteration
         else:
-            item = self.head.data
+            item_data = self.head.data
             self.head = self.head.next
-            return item
+            return item_data
 
 
     def __str__(self):
@@ -140,7 +140,7 @@ x = iter(ll)
 print(next(x))
 print(next(x))
 print(next(x))
-print("test_2")
+
 
 
 
