@@ -173,17 +173,73 @@ one_dim = np.reshape(matrix_A, -1) #lub ravel
 c = np.array(np.random.randint(1,100, size = 10), dtype= float)
 normalized = (c - np.min(c)) / (np.max(c) - np.min(c))
 
-#26
+#26a
 arr_4 = np.array(np.random.rand(20))
-print(np.mean(arr_4))
-print(np.median(arr_4))
-print(np.var(arr_4))
-print(np.std(arr_4))
+#print(np.mean(arr_4))
+#print(np.median(arr_4))
+#print(np.var(arr_4))
+#print(np.std(arr_4))
+
+#26b
+arr_mean = np.mean(arr_4)
+absolute_arr = np.absolute(arr_4 - arr_mean)
+get_min= absolute_arr.argmin()
+#print(arr_4[get_min])
+
+#27
+arr_5 = np.random.randint(1,100, np.array([3,5]))
+#print(np.mean(arr_5, axis=0))
+#print(np.mean(arr_5, axis=1))
+
+#28
+arr_6 = np.random.rand(100)
+#Do zrobienia
 
 
-
-
+#29
+arr_7 = np.random.randint(1,100, np.array([10,10]))
+#print(arr_7)
+arr_7_max = arr_7.max()
+#print(f"Max: {arr_7_max}")
+arr_7_min = arr_7.min()
+#print(f"Min: {arr_7_min}")
+#print(f"Max index: {np.argmax(arr_7)}")
+#print(f"Min index: {np.argmin(arr_7)}")
 
 #30
+prices = np.array([9.99, 12.49, 7.50, 14.90, 3.99])
+#print(f"Średnia: {np.mean(prices)}, Mediana: {np.median(prices)}")
+prices = prices + (prices * 23 / 100)
+index = np.where(prices>10)
+#print(prices[index])
 
+#31
+scores = np.array([56, 78, 45, 89, 90, 67, 73, 100, 59])
+scores_average = np.mean(scores)
+scores_add = np.where(scores<60, scores+10, scores)
+scores_above = np.size(np.where(scores>80))
+check_rate = round((np.size(np.where(scores>50)) / np.size(scores)) * 100, 1)
+#print(f"{check_rate}%")
+
+#32
+temps = np.array([[22, 25, 21], [18, 20, 19], [25, 27, 26], [23, 22, 24]])
+temps_avg = np.mean(temps, axis=1)
+temps_min = np.min(temps)
+temps_max = np.max(temps)
+temps_F = np.multiply(temps, 2) + 30
+
+#33
+random_array = np.array(np.random.choice([0,1], 1000))
+no_zero = np.count_nonzero(random_array)
+zero_number  =  np.size(random_array) - no_zero
+#print(f"Orzeł: {zero_number} \nReszka: {no_zero}")
+
+#34
+array_rand = np.random.randint(1,7,100)
+print(array_rand)
+count = np.bincount(array_rand, weights=None, minlength=0)
+
+#35
+array_rand_2 = np.random.randint(1,49, 6)
+print(np.random.choice(array_rand_2, size=6, replace=False))
 
