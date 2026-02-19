@@ -23,12 +23,13 @@ class LinkedList:
         new_element = Node(data)
         if self.head is None:
             self.head = new_element
+            current = self.head
         else:
             curr_item = self.head
             while True:
                 if curr_item.next is None:
                     curr_item.next = new_element
-                    self.tail = curr_item.next
+                    current = curr_item.next
                     break
                 curr_item = curr_item.next
 
@@ -62,6 +63,7 @@ class LinkedList:
             if curr_item.next and curr_item.next.data == value:
                  curr_item.next = curr_item.next.next
                  is_deleted = True
+                 break
             curr_item = curr_item.next
         if not is_deleted:
             raise ValueNotFoundError("Brak wartości")
@@ -114,10 +116,9 @@ class LinkedList:
     def __next__(self):
         if self.head is None:
             raise StopIteration
-        else:
-            item_data = self.head.data
-            self.head = self.head.next
-            return item_data
+        item_data = self.head.data
+        self.head = self.head.next
+        return item_data
 
 
     def __str__(self):
