@@ -120,7 +120,6 @@ class LinkedList:
         self.head = self.head.next
         return item_data
 
-
     def __str__(self):
         curr_item = self.head
         to_be_printed = curr_item.data
@@ -128,7 +127,6 @@ class LinkedList:
              curr_item = curr_item.next
              to_be_printed+=f"-->{curr_item.data}"
         return to_be_printed
-
 
 
 ll = LinkedList()
